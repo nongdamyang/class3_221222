@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itwillbs.spring_mvc_board_ysj.mapper.MemberMapper">
+
+	<insert id="insertMember">
+		INSERT INTO member
+			VALUES (
+				NULL -- 회원번호 자동 증가
+				,#{name} -- 이름
+				,#{id} -- 아이디
+				,#{passwd} -- 패스워드
+<!-- 				,#{email}  -->
+				,CONCAT(#{email1}, '@', #{email2}) -- 이메일 문자열 결합
+				,#{gender} -- 성별
+				,now() -- 날짜
+				,'N' -- 인증상태
+			)
+	</insert>
+
+
+	<select id="selectPasswd" resultType="string">
+		SELECT passwd
+			FROM member
+			WHERE id = #{id}
+	</select>
+	
+	<select id="selectMemberInfo" resultType="com.itwillbs.spring_mvc_board_ysj.vo.MemberVO">
+		SELECT * FROM member 
+			WHERE id = #{id}
+	</select>
+	
+	<update id="updateMemberInfo">
+		UPDATE member
+			SET 
+			name = #{member.name} -- 이름
+			,email = CONCAT(#{member.email1}, '@', #{member.email2}) -- 이메일
+			,gender = #{member.gender} -- 성별
+			<if test="newPasswd neq ''">
+				,passwd = #{newPasswd}
+			</if>
+			WHERE id = #{member.id}
+	</update>
+	
+	<delete id="deleteMember">
+		DELETE 
+			FROM member
+			WHERE id = #{id}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
