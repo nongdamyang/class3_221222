@@ -22,6 +22,7 @@
 		<h3><a href="FreeBoardList.bo2">자유게시판 글목록</a></h3>
 		<h1>수정확인용1</h1>
 		<h1>수정확인용2 - test</h1>
+		<h1>수정확인용3 - test</h1>
 	</article>
 </body>
 </html>
