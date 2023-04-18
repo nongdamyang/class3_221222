@@ -20,7 +20,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-
+		// 테스트에서 수정 
 		
 		return "index";
 	}
